@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
 import "./header.css";
-const Header=() => {
-  return (
+import { Link } from "react-router-dom";
+
+const Header = ({isAuth}) => {
+  return ( 
     <header>
       <div className="logo">E-Learning</div>
 
@@ -19,4 +21,4 @@ const Header=() => {
   );
 };
 
-export default Header
+export default Header;
