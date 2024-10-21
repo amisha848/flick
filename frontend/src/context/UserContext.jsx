@@ -33,43 +33,43 @@ export const UserContextProvider = ({ children }) => {
     }
   }
 
-//   async function registerUser(name, email, password, navigate) {
-//     setBtnLoading(true);
-//     try {
-//       const { data } = await axios.post(`${server}/api/user/register`, {
-//         name,
-//         email,
-//         password,
-//       });
+  async function registerUser(name, email, password, navigate) {
+    setBtnLoading(true);
+    try {
+      const { data } = await axios.post(`${server}/api/user/register`, {
+        name,
+        email,
+        password,
+      });
 
-//       toast.success(data.message);
-//       localStorage.setItem("activationToken", data.activationToken);
-//       setBtnLoading(false);
-//       navigate("/verify");
-//     } catch (error) {
-//       setBtnLoading(false);
-//       toast.error(error.response.data.message);
-//     }
-//   }
+      toast.success(data.message);
+      localStorage.setItem("activationToken", data.activationToken);
+      setBtnLoading(false);
+      navigate("/verify");
+    } catch (error) {
+      setBtnLoading(false);
+      toast.error(error.response.data.message);
+    }
+  }
 
-//   async function verifyOtp(otp, navigate) {
-//     setBtnLoading(true);
-//     const activationToken = localStorage.getItem("activationToken");
-//     try {
-//       const { data } = await axios.post(`${server}/api/user/verify`, {
-//         otp,
-//         activationToken,
-//       });
+  async function verifyOtp(otp, navigate) {
+    setBtnLoading(true);
+    const activationToken = localStorage.getItem("activationToken");
+    try {
+      const { data } = await axios.post(`${server}/api/user/verify`, {
+        otp,
+        activationToken,
+      });
 
-//       toast.success(data.message);
-//       navigate("/login");
-//       localStorage.clear();
-//       setBtnLoading(false);
-//     } catch (error) {
-//       toast.error(error.response.data.message);
-//       setBtnLoading(false);
-//     }
-//   }
+      toast.success(data.message);
+      navigate("/login");
+      localStorage.clear();
+      setBtnLoading(false);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      setBtnLoading(false);
+    }
+  }
 
   async function fetchUser() {
     try {
@@ -101,8 +101,8 @@ export const UserContextProvider = ({ children }) => {
         loginUser,
         btnLoading,
         loading,
-       // registerUser,
-       // verifyOtp,
+        registerUser,
+        verifyOtp,
        //fetchUser,
       }}
     >
